@@ -13,7 +13,7 @@ import httpx
 # ── Config ────────────────────────────────────────────────────
 
 API_BASE_URL = "https://ad.h5.miaozhisheng.tech"
-API_KEY = os.environ.get("API_KEY", "")
+API_KEY = os.environ.get("ADMAPIX_API_KEY", "")
 
 mcp_server = FastMCP("admapix")
 
@@ -55,7 +55,7 @@ async def search_creatives(
         delivery_user_id: External user ID for H5 page delivery actions
     """
     if not API_KEY:
-        return {"error": "Missing API_KEY environment variable"}
+        return {"error": "Missing ADMAPIX_API_KEY environment variable"}
 
     # Build flat request body for the proxy API
     body: dict = {

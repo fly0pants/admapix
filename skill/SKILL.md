@@ -1,7 +1,7 @@
 ---
 name: ad-creative-search
 description: 广告素材搜索助手。搜索结果通过 ad.h5.miaozhisheng.tech 展示。当用户提到"找素材"、"搜广告"、"广告视频"、"创意素材"、"竞品广告"、"ad creative"、"search ads" 等关键词时触发。
-metadata: {"openclaw":{"emoji":"🎯","requires":{"env":["API_KEY"]},"primaryEnv":"API_KEY"}}
+metadata: {"openclaw":{"emoji":"🎯","requires":{"env":["ADMAPIX_API_KEY"]},"primaryEnv":"ADMAPIX_API_KEY"}}
 ---
 
 # 广告素材搜索助手 (Ad Creative Search)
@@ -13,7 +13,7 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"env":["API_KEY"]},"primaryEnv
 **通过 curl 调用 AdMapix API 获取数据。**
 
 API 地址：`https://ad.h5.miaozhisheng.tech/api/data/search`
-认证方式：请求头 `X-API-Key: $API_KEY`（环境变量，由平台安全管理）
+认证方式：请求头 `X-API-Key: $ADMAPIX_API_KEY`（环境变量，由平台安全管理）
 
 ### 请求格式
 
@@ -21,7 +21,7 @@ POST JSON，示例：
 
 ```bash
 curl -s -X POST "https://ad.h5.miaozhisheng.tech/api/data/search" \
-  -H "X-API-Key: $API_KEY" \
+  -H "X-API-Key: $ADMAPIX_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"content_type":"creative","keyword":"puzzle game","page":1,"page_size":20,"sort_field":"3","sort_rule":"desc","generate_page":true}'
 ```
@@ -116,7 +116,7 @@ curl -s -X POST "https://ad.h5.miaozhisheng.tech/api/data/search" \
 
 ```bash
 curl -s -X POST "https://ad.h5.miaozhisheng.tech/api/data/search" \
-  -H "X-API-Key: $API_KEY" \
+  -H "X-API-Key: $ADMAPIX_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"content_type":"creative","keyword":"puzzle game","creative_team":["010"],"page":1,"page_size":20,"sort_field":"3","sort_rule":"desc","generate_page":true}'
 ```
