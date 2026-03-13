@@ -12,7 +12,7 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"env":["API_KEY"]},"primaryEnv
 
 **通过 curl 调用 AdMapix API 获取数据。**
 
-API 地址：`http://ad.h5.miaozhisheng.tech/api/data/search`
+API 地址：`https://ad.h5.miaozhisheng.tech/api/data/search`
 认证方式：请求头 `X-API-Key: $API_KEY`（环境变量，由平台安全管理）
 
 ### 请求格式
@@ -20,7 +20,7 @@ API 地址：`http://ad.h5.miaozhisheng.tech/api/data/search`
 POST JSON，示例：
 
 ```bash
-curl -s -X POST "http://ad.h5.miaozhisheng.tech/api/data/search" \
+curl -s -X POST "https://ad.h5.miaozhisheng.tech/api/data/search" \
   -H "X-API-Key: $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"content_type":"creative","keyword":"puzzle game","page":1,"page_size":20,"sort_field":"3","sort_rule":"desc","generate_page":true}'
@@ -115,7 +115,7 @@ curl -s -X POST "http://ad.h5.miaozhisheng.tech/api/data/search" \
 **示例：**
 
 ```bash
-curl -s -X POST "http://ad.h5.miaozhisheng.tech/api/data/search" \
+curl -s -X POST "https://ad.h5.miaozhisheng.tech/api/data/search" \
   -H "X-API-Key: $API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"content_type":"creative","keyword":"puzzle game","creative_team":["010"],"page":1,"page_size":20,"sort_field":"3","sort_rule":"desc","generate_page":true}'
@@ -123,13 +123,13 @@ curl -s -X POST "http://ad.h5.miaozhisheng.tech/api/data/search" \
 
 ### Step 5: 发送 H5 结果页面链接
 
-API 返回的 JSON 中 `page_url` 字段是服务端生成的 H5 页面路径。完整 URL 格式：`http://ad.h5.miaozhisheng.tech{page_url}`
+API 返回的 JSON 中 `page_url` 字段是服务端生成的 H5 页面路径。完整 URL 格式：`https://ad.h5.miaozhisheng.tech{page_url}`
 
 **发送消息**：**只发送**以下简短消息 + H5 链接，**不要**再附带任何文本格式的结果列表
 
 ```
 🎯 搜到 XXX 条「keyword」的广告素材（第 1 页）
-👉 http://ad.h5.miaozhisheng.tech{page_url}
+👉 https://ad.h5.miaozhisheng.tech{page_url}
 
 说「下一页」继续 | 说「只看视频」筛选
 ```

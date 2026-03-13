@@ -33,7 +33,7 @@ Just tell your agent what you're looking for, and get back a rich H5 results pag
 User: "Search casual game video ads in Southeast Asia"
 
 Agent: 🎯 Found 2,847 ad creatives (page 1)
-       👉 http://ad.h5.miaozhisheng.tech/p/abc123
+       👉 https://ad.h5.miaozhisheng.tech/p/abc123
 ```
 
 ---

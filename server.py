@@ -12,7 +12,7 @@ import httpx
 
 # ── Config ────────────────────────────────────────────────────
 
-API_BASE_URL = "http://ad.h5.miaozhisheng.tech"
+API_BASE_URL = "https://ad.h5.miaozhisheng.tech"
 API_KEY = os.environ.get("API_KEY", "")
 
 mcp_server = FastMCP("admapix")
@@ -79,7 +79,7 @@ async def search_creatives(
     if creative_team:
         body["creative_team"] = creative_team
     body["generate_page"] = True
-    delivery_api_base = os.environ.get("DELIVERY_API_BASE", "http://ad.api.miaozhisheng.tech")
+    delivery_api_base = os.environ.get("DELIVERY_API_BASE", "https://ad.api.miaozhisheng.tech")
     delivery = {"apiBase": delivery_api_base}
     if delivery_channel:
         delivery["channel"] = delivery_channel

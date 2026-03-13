@@ -33,7 +33,7 @@ AdMapix 是一个 **MCP Server + OpenClaw Skill**，让 AI 智能体通过自然
 用户: "搜一下东南亚的休闲游戏视频广告"
 
 助手: 🎯 搜到 2,847 条广告素材（第 1 页）
-      👉 http://ad.h5.miaozhisheng.tech/p/abc123
+      👉 https://ad.h5.miaozhisheng.tech/p/abc123
 ```
 
 ---
