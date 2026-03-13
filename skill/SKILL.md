@@ -12,12 +12,7 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"bins":["mcporter"],"env":["AP
 
 **必须通过 mcporter 命令获取数据。**
 
-通过 bash 执行 mcporter 命令调用 MCP tools。**每次 bash 调用前，先确保 PATH 包含常见工具路径：**
-
-```bash
-# 在每个 bash 命令块开头加上（确保非登录 shell 也能找到工具）
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-```
+通过 bash 执行 mcporter 命令调用 MCP tools。
 
 ### 可用 Tool
 
@@ -56,42 +51,21 @@ mcporter call 'admapix.search_creatives(keyword:"idle game",creative_team:["001"
 **每次会话首次调用时**，先检查 AdMapix MCP Server 是否已配置：
 
 ```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
 mcporter list 2>&1 | grep -q admapix && echo "OK" || echo "NOT_FOUND"
 ```
 
 - **输出 `OK`**：环境正常，跳到 Step 1
-- **输出 `NOT_FOUND`**：MCP Server 未配置到 mcporter，自动注册：
+- **输出 `NOT_FOUND`**：MCP Server 未注册到 mcporter，使用 mcporter 内置命令注册：
 
 ```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-ADMAPIX_BIN=$(which admapix-mcp 2>/dev/null || echo "admapix-mcp")
-CONFIG="$HOME/.mcporter/mcporter.json"
-mkdir -p "$(dirname "$CONFIG")"
-
-python3 -c "
-import json, os
-path = os.path.expanduser('~/.mcporter/mcporter.json')
-cfg = {}
-if os.path.exists(path):
-    with open(path) as f:
-        cfg = json.load(f)
-servers = cfg.get('mcpServers', {})
-servers['admapix'] = {
-    'command': '$ADMAPIX_BIN',
-    'env': {'API_KEY': os.environ.get('API_KEY', '')}
-}
-cfg['mcpServers'] = servers
-cfg.setdefault('imports', [])
-with open(path, 'w') as f:
-    json.dump(cfg, f, indent=2)
-    f.write('\n')
-"
-
-mcporter list 2>&1 | grep admapix
+mcporter config add admapix --command admapix-mcp --env API_KEY="$API_KEY" --scope home
 ```
 
-注册使用环境变量中已有的 API_KEY（由 OpenClaw 通过 `requires.env` 安全管理，无需在对话中提供）。如果 admapix-mcp 未安装，OpenClaw 会通过 `install` spec 自动安装。
+API_KEY 由 OpenClaw 通过 `requires.env` 安全管理（无需在对话中提供）。admapix-mcp 由 `install` spec 自动安装。注册完成后验证：
+
+```bash
+mcporter list 2>&1 | grep admapix
+```
 
 ### Step 1: 解析参数
 
