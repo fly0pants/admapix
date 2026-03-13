@@ -70,51 +70,34 @@ AdMapix MCP Server 尚未配置，需要先完成安装。
 请提供你的 API Key（格式如 sk_xxx，可在 https://admapix.miaozhisheng.tech 获取）
 ```
 
-**0b. 用户提供 API Key 后，检测 Python 3.10+：**
+**0b. 用户提供 API Key 后，安装 MCP Server（PyPI 包）：**
 
 ```bash
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-python3 -c "import sys; v=sys.version_info; print(f'{v.major}.{v.minor}'); exit(0 if v>=(3,10) else 1)" 2>/dev/null
+pip3 install admapix-mcp
+# 记录安装路径供后续配置使用
+which admapix-mcp
 ```
 
-如果 Python 不满足要求，提示用户安装：`brew install python@3.12`（macOS）或 `sudo apt-get install python3 python3-venv`（Linux）
+如果 pip3 报错 Python 版本不满足，提示用户安装 Python 3.10+：`brew install python@3.12`（macOS）或 `sudo apt-get install python3 python3-venv python3-pip`（Linux）
 
-**0c. 下载 server.py 并创建虚拟环境：**
-
-```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-INSTALL_DIR="$HOME/.admapix"
-mkdir -p "$INSTALL_DIR"
-
-# 下载 MCP server 文件（单文件，可审计）
-curl -fsSL https://raw.githubusercontent.com/fly0pants/admapix/main/server.py -o "$INSTALL_DIR/server.py"
-curl -fsSL https://raw.githubusercontent.com/fly0pants/admapix/main/requirements.txt -o "$INSTALL_DIR/requirements.txt"
-
-# 创建虚拟环境并安装依赖
-python3 -m venv "$INSTALL_DIR/.venv"
-"$INSTALL_DIR/.venv/bin/pip" install -q -r "$INSTALL_DIR/requirements.txt"
-
-echo "DONE"
-```
-
-**0d. 配置 mcporter（将 API Key 替换为用户提供的值）：**
+**0c. 配置 mcporter（将 `<API_KEY>` 替换为用户实际提供的值，`<ADMAPIX_MCP_PATH>` 替换为上一步 `which admapix-mcp` 的输出）：**
 
 ```bash
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-INSTALL_DIR="$HOME/.admapix"
 CONFIG="$HOME/.mcporter/mcporter.json"
 mkdir -p "$(dirname "$CONFIG")"
 
 python3 -c "
 import json, os
-path = '$CONFIG'
+path = os.path.expanduser('~/.mcporter/mcporter.json')
 cfg = {}
 if os.path.exists(path):
     with open(path) as f:
         cfg = json.load(f)
 servers = cfg.get('mcpServers', {})
 servers['admapix'] = {
-    'command': '$INSTALL_DIR/.venv/bin/python3 $INSTALL_DIR/server.py',
+    'command': '<ADMAPIX_MCP_PATH>',
     'env': {'API_KEY': '<API_KEY>'}
 }
 cfg['mcpServers'] = servers
@@ -126,7 +109,7 @@ with open(path, 'w') as f:
 echo "DONE"
 ```
 
-**0e. 验证安装：**
+**0d. 验证安装：**
 
 ```bash
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
