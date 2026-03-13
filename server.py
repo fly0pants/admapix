@@ -36,7 +36,7 @@ async def search_creatives(
     delivery_channel: str | None = None,
     delivery_user_id: str | None = None,
 ) -> dict:
-    """Search advertising creatives from InsighTrackr.
+    """Search advertising creatives from AdMapix.
 
     Always generates an H5 result page and returns its URL in the page_url field.
 

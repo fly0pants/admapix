@@ -176,7 +176,7 @@ User (WeChat / Agent)
   → AI Agent (OpenClaw)
     → mcporter call 'admapix.search_creatives(...)'
       → MCP Server (Python, STDIO)
-        → InsighTrackr API
+        → AdMapix API
           → H5 Result Page ← User views in browser
           → Video Delivery  ← User receives in WeChat
 ```
@@ -192,5 +192,7 @@ MIT License — free to use, modify, and distribute.
 <div align="center">
 
 **AdMapix** — *Ad intelligence at your fingertips.*
+
+Built by [Miaozhisheng](https://miaozhisheng.tech/)
 
 </div>

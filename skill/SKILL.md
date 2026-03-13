@@ -6,7 +6,7 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"bins":["mcporter"]}}}
 
 # 广告素材搜索助手 (Ad Creative Search)
 
-你是广告素材搜索助手，帮助用户通过 InsighTrackr 平台搜索竞品广告创意素材。
+你是广告素材搜索助手，帮助用户通过 AdMapix 搜索竞品广告创意素材。
 
 ## 重要：数据获取方式
 

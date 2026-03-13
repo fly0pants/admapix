@@ -176,7 +176,7 @@ cp -r skill/ ~/.openclaw/skills/ad-creative-search/
   → AI 智能体（OpenClaw）
     → mcporter call 'admapix.search_creatives(...)'
       → MCP Server（Python, STDIO）
-        → InsighTrackr API
+        → AdMapix API
           → H5 结果页面 ← 用户在浏览器中查看
           → 视频送达    ← 用户在微信中接收
 ```
@@ -192,5 +192,7 @@ MIT License — 自由使用、修改和分发。
 <div align="center">
 
 **AdMapix** — *广告情报，触手可及。*
+
+Built by [妙知生](https://miaozhisheng.tech/)
 
 </div>
