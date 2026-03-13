@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>AI-Powered Ad Creative Intelligence — Search, Discover, Deliver.</strong><br>
-  <sub><b>Ad</b>(广告) + <b>Ma</b>(Map/Material) + <b>Pix</b>(Pixel) — 广告素材，像素级洞察。</sub>
+  <sub><b>Ad</b>(Advertising) + <b>Ma</b>(Map/Material) + <b>Pix</b>(Pixel) — Pixel-level insight into ad creatives.</sub>
 </p>
 
 <p align="center">
@@ -17,18 +17,22 @@
   <img src="https://img.shields.io/badge/platform-macOS_|_Linux_|_Windows-lightgrey" alt="Platform">
 </p>
 
+<p align="center">
+  <a href="README_CN.md"><strong>中文文档</strong></a>
+</p>
+
 ---
 
 ## 🤔 What is AdMapix?
 
 AdMapix is an **MCP Server + OpenClaw Skill** that lets AI agents search competitor ad creatives through natural language.
 
-Say **"帮我搜一下拼图游戏的广告素材"** in your chat, and get back a rich H5 results page with videos, images, and one-click delivery to WeChat.
+Just tell your agent what you're looking for, and get back a rich H5 results page with videos, images, metrics, and one-click delivery to WeChat.
 
 ```
-User: "搜一下东南亚的休闲游戏视频广告"
+User: "Search casual game video ads in Southeast Asia"
 
-Agent: 🎯 搜到 2,847 条广告素材（第 1 页）
+Agent: 🎯 Found 2,847 ad creatives (page 1)
        👉 http://ad.h5.miaozhisheng.tech/p/abc123
 ```
 
@@ -47,7 +51,7 @@ Keyword, country, date range, creative type — all expressed in natural languag
 <td width="33%">
 
 ### 🌏 Global Coverage
-50+ countries, 10+ region shortcuts (东南亚, 北美, 日韩...), filterable by industry.
+50+ countries, 10+ region shortcuts, filterable by industry category.
 
 </td>
 <td width="33%">
@@ -61,7 +65,7 @@ Auto-generated H5 pages with video playback, image gallery, ad metrics, and impr
 <td width="33%">
 
 ### 📱 WeChat Delivery
-One-tap "Send to Chat" — delivers video files directly to WeChat conversations.
+One-tap "Send to Chat" — delivers video files directly into WeChat conversations.
 
 </td>
 <td width="33%">
@@ -109,22 +113,22 @@ The installer automatically:
 | 4 | Sets up MCP Server in `~/.admapix/` |
 | 5 | Configures `~/.mcporter/mcporter.json` |
 
-**That's it.** Start chatting with your agent — say "搜广告" and go.
+**That's it.** Start chatting with your agent and search away.
 
 ---
 
-## 🎯 Usage Examples
+## 🎯 Usage
 
 Through your AI agent (OpenClaw, etc.), just say:
 
 | You say | What happens |
 |---------|-------------|
-| "搜一下 temu 的广告" | Search by keyword |
-| "只看视频素材" | Filter by creative type |
-| "东南亚地区的" | Filter by region |
-| "按曝光量排序" | Sort by impression |
-| "最近一周的" | Filter by date range |
-| "下一页" | Paginate |
+| "search temu ads" | Search by keyword |
+| "video only" | Filter by creative type |
+| "in Southeast Asia" | Filter by region |
+| "sort by impressions" | Sort by impression |
+| "last 7 days" | Filter by date range |
+| "next page" | Paginate |
 
 ---
 
