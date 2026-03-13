@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>AI-Powered Ad Creative Intelligence — Search, Discover, Deliver.</strong><br>
-  <sub>One command to search millions of competitor ads across global markets.</sub>
+  <sub><b>Ad</b>(广告) + <b>Ma</b>(Map/Material) + <b>Pix</b>(Pixel) — 广告素材，像素级洞察。</sub>
 </p>
 
 <p align="center">
