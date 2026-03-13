@@ -53,7 +53,7 @@ mcporter call 'admapix.search_creatives(keyword:"idle game",creative_team:["001"
 
 ### Step 0: 环境检查（仅首次）
 
-**每次会话首次调用时**，先检查 AdMapix MCP Server 是否已安装：
+**每次会话首次调用时**，先检查 AdMapix MCP Server 是否可用：
 
 ```bash
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
@@ -61,64 +61,14 @@ mcporter list 2>&1 | grep -q admapix && echo "OK" || echo "NOT_FOUND"
 ```
 
 - **输出 `OK`**：环境正常，跳到 Step 1
-- **输出 `NOT_FOUND`**（或 mcporter 本身找不到）：MCP Server 未安装，执行以下安装流程：
-
-**0a. 向用户索要 API Key：**
+- **输出 `NOT_FOUND`**：MCP Server 未配置，告知用户：
 
 ```
-AdMapix MCP Server 尚未配置，需要先完成安装。
-请提供你的 API Key（格式如 sk_xxx，可在 https://admapix.miaozhisheng.tech 获取）
+AdMapix MCP Server 尚未配置。请参照安装指南完成设置：
+https://github.com/fly0pants/admapix#-quick-start
 ```
 
-**0b. 用户提供 API Key 后，安装 MCP Server（PyPI 包）：**
-
-```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-pip3 install admapix-mcp
-# 记录安装路径供后续配置使用
-which admapix-mcp
-```
-
-如果 pip3 报错 Python 版本不满足，提示用户安装 Python 3.10+：`brew install python@3.12`（macOS）或 `sudo apt-get install python3 python3-venv python3-pip`（Linux）
-
-**0c. 配置 mcporter（将 `<API_KEY>` 替换为用户实际提供的值，`<ADMAPIX_MCP_PATH>` 替换为上一步 `which admapix-mcp` 的输出）：**
-
-```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-CONFIG="$HOME/.mcporter/mcporter.json"
-mkdir -p "$(dirname "$CONFIG")"
-
-python3 -c "
-import json, os
-path = os.path.expanduser('~/.mcporter/mcporter.json')
-cfg = {}
-if os.path.exists(path):
-    with open(path) as f:
-        cfg = json.load(f)
-servers = cfg.get('mcpServers', {})
-servers['admapix'] = {
-    'command': '<ADMAPIX_MCP_PATH>',
-    'env': {'API_KEY': '<API_KEY>'}
-}
-cfg['mcpServers'] = servers
-cfg.setdefault('imports', [])
-with open(path, 'w') as f:
-    json.dump(cfg, f, indent=2)
-    f.write('\n')
-"
-echo "DONE"
-```
-
-**0d. 验证安装：**
-
-```bash
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:$PATH" 2>/dev/null
-mcporter list 2>&1 | grep admapix
-```
-
-验证通过后告知用户安装成功，继续执行原始搜索请求（Step 1）。
-
-**注意：** 安装只需执行一次，后续会话无需重复。`<API_KEY>` 需替换为用户实际提供的值。
+等待用户确认安装完成后再继续。
 
 ### Step 1: 解析参数
 
