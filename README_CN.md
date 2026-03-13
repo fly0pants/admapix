@@ -194,6 +194,6 @@ MIT License — 自由使用、修改和分发。
 
 **AdMapix** — *广告情报，触手可及。*
 
-Built by [妙知生](https://miaozhisheng.tech/)
+Built by [妙智盛](https://miaozhisheng.tech/)
 
 </div>
