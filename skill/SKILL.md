@@ -18,13 +18,13 @@ metadata: {"openclaw":{"emoji":"🎯","requires":{"bins":["mcporter"]}}}
 
 ```bash
 # 基础搜索
-mcporter call 'insightrackr.search_creatives(keyword:"puzzle game")'
+mcporter call 'admapix.search_creatives(keyword:"puzzle game")'
 
 # 带筛选条件的搜索
-mcporter call 'insightrackr.search_creatives(keyword:"temu",country_ids:["US","GB"],creative_team:["010"],page_size:10)'
+mcporter call 'admapix.search_creatives(keyword:"temu",country_ids:["US","GB"],creative_team:["010"],page_size:10)'
 
 # 完整参数示例
-mcporter call 'insightrackr.search_creatives(keyword:"idle game",creative_team:["001"],country_ids:["US","JP"],start_date:"2026-02-08",end_date:"2026-03-10",sort_field:"5",sort_rule:"desc",page:1,page_size:20)'
+mcporter call 'admapix.search_creatives(keyword:"idle game",creative_team:["001"],country_ids:["US","JP"],start_date:"2026-02-08",end_date:"2026-03-10",sort_field:"5",sort_rule:"desc",page:1,page_size:20)'
 ```
 
 ### 参数说明
@@ -122,10 +122,10 @@ mcporter call 'insightrackr.search_creatives(keyword:"idle game",creative_team:[
 **示例：**
 ```bash
 # 基础搜索
-mcporter call 'insightrackr.search_creatives(keyword:"puzzle game",creative_team:["010"])'
+mcporter call 'admapix.search_creatives(keyword:"puzzle game",creative_team:["010"])'
 
 # 带 delivery 参数（从 _user_context.json 读取后填入）
-mcporter call 'insightrackr.search_creatives(keyword:"puzzle game",delivery_channel:"wechat_kf",delivery_user_id:"<从_user_context.json读取>")'
+mcporter call 'admapix.search_creatives(keyword:"puzzle game",delivery_channel:"wechat_kf",delivery_user_id:"<从_user_context.json读取>")'
 ```
 
 ### Step 5: 发送 H5 结果页面链接

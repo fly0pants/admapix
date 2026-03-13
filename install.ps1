@@ -1,5 +1,5 @@
 #
-# InsighTrackr MCP Server 安装脚本 (Windows)
+# AdMapix 安装脚本 (Windows)
 #
 # 用法：
 #   powershell -ExecutionPolicy Bypass -File install.ps1 -ApiKey <API_KEY>
@@ -11,7 +11,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$InstallDir = Join-Path $env:USERPROFILE ".insightrackr-mcp"
+$InstallDir = Join-Path $env:USERPROFILE ".admapix"
 $McporterConfig = Join-Path $env:USERPROFILE ".mcporter\mcporter.json"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $MinPyMajor = 3
@@ -49,7 +49,7 @@ function Refresh-Path {
 
 Write-Host ""
 Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "  InsighTrackr MCP Server 安装" -ForegroundColor Cyan
+Write-Host "  AdMapix 安装" -ForegroundColor Cyan
 Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "── [1/5] 检测 Python 环境 ──"
@@ -160,7 +160,7 @@ if os.path.exists(path):
         cfg = json.load(f)
 
 servers = cfg.get('mcpServers', {})
-servers['insightrackr'] = {
+servers['admapix'] = {
     'command': r'$VenvPython $ServerPy',
     'env': {'API_KEY': '$ApiKey'}
 }

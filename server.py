@@ -1,6 +1,6 @@
-"""InsighTrackr MCP Server — exposes creative search via STDIO transport.
+"""AdMapix MCP Server — exposes ad creative search via STDIO transport.
 
-Talks to the proxy API at API_BASE_URL with X-API-Key authentication.
+Talks to the proxy API with X-API-Key authentication.
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ import httpx
 API_BASE_URL = "http://ad.h5.miaozhisheng.tech"
 API_KEY = os.environ.get("API_KEY", "")
 
-mcp_server = FastMCP("insightrackr")
+mcp_server = FastMCP("admapix")
 
 
 # ── Tool ──────────────────────────────────────────────────────

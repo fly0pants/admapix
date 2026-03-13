@@ -1,4 +1,4 @@
-# InsighTrackr MCP Server
+# AdMapix
 
 广告素材搜索 MCP Server，配合 OpenClaw 的 `ad-creative-search` skill 使用。
 
@@ -11,15 +11,15 @@
 ### Mac / Linux
 
 ```bash
-git clone https://github.com/fly0pants/insightrackr-mcp.git
-bash insightrackr-mcp/install.sh <API_KEY>
+git clone https://github.com/fly0pants/admapix.git
+bash admapix/install.sh <API_KEY>
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/fly0pants/insightrackr-mcp.git
-powershell -ExecutionPolicy Bypass -File insightrackr-mcp\install.ps1 -ApiKey <API_KEY>
+git clone https://github.com/fly0pants/admapix.git
+powershell -ExecutionPolicy Bypass -File admapix\install.ps1 -ApiKey <API_KEY>
 ```
 
 安装脚本会自动：
@@ -27,7 +27,7 @@ powershell -ExecutionPolicy Bypass -File insightrackr-mcp\install.ps1 -ApiKey <A
 1. 检测并安装 Python 3.10+（如果没有）
 2. 检测并安装 Node.js（如果没有）
 3. 检测并安装 mcporter（如果没有）
-4. 安装 MCP Server 到 `~/.insightrackr-mcp/`
+4. 安装 MCP Server 到 `~/.admapix/`
 5. 配置 `~/.mcporter/mcporter.json`
 
 ## 手动配置
@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File insightrackr-mcp\install.ps1 -ApiKey <A
 ```json
 {
   "mcpServers": {
-    "insightrackr": {
+    "admapix": {
       "command": "<python路径> <server.py路径>",
       "env": {
         "API_KEY": "<管理员分配的密钥>"
