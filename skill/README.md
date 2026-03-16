@@ -18,7 +18,7 @@ npx clawhub install adclaw
 
 ## Setup
 
-1. Go to [admapix.miaozhisheng.tech](https://admapix.miaozhisheng.tech) to register and get your API Key
+1. Go to [adclaw.miaozhisheng.tech](https://adclaw.miaozhisheng.tech) to register and get your API Key
 2. Configure:
 
 ```bash
@@ -46,9 +46,9 @@ After setup, just tell your AI assistant:
 
 ## Links
 
-- Website: [admapix.miaozhisheng.tech](https://admapix.miaozhisheng.tech)
+- Website: [adclaw.miaozhisheng.tech](https://adclaw.miaozhisheng.tech)
 - GitHub: [github.com/fly0pants/adclaw](https://github.com/fly0pants/adclaw)
 
 ---
 
-Built by [Miaozhisheng](https://admapix.miaozhisheng.tech)
+Built by [Miaozhisheng](https://adclaw.miaozhisheng.tech)

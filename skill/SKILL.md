@@ -113,7 +113,7 @@ Before executing the search, check if `$ADCLAW_API_KEY` is set (via `[ -n "$ADCL
 ```
 🔑 You need to configure an AdClaw API Key before searching.
 
-1. Go to https://admapix.miaozhisheng.tech to register and get your API Key
+1. Go to https://adclaw.miaozhisheng.tech to register and get your API Key
 2. Run this command to configure:
    openclaw config set skills.entries.adclaw.apiKey "YOUR_API_KEY"
 3. Then try your search again 🎉
