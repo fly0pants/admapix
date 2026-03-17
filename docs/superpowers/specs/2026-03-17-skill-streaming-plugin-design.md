@@ -124,10 +124,10 @@ The plugin exports a `register` function that receives `OpenClawPluginApi`:
 
 ```typescript
 // src/index.ts
-import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
-import { parseAgentSessionKey } from "openclaw/plugin-sdk";
+import type { OpenClawPluginApi, OpenClawPluginDefinition } from "openclaw/plugin-sdk";
 
-export function register(api: OpenClawPluginApi) {
+const plugin: OpenClawPluginDefinition = {
+  register(api: OpenClawPluginApi) {
   const runtime = api.runtime;   // closure capture — access to channel send functions
   const config = api.config;     // closure capture — access to global config
   const runStates = new Map<string, RunState>();
@@ -195,7 +195,10 @@ export function register(api: OpenClawPluginApi) {
     runStates.delete(key);
     activeSkills.delete(key);
   });
-}
+  }  // end register
+};
+
+export default plugin;
 ```
 
 ## Auto Label Extraction
@@ -278,7 +281,10 @@ Examples:
 - `agent:main:feishu:default:direct:user789` → Feishu DM
 
 ```typescript
-import { parseAgentSessionKey } from "openclaw/plugin-sdk";
+// NOTE: parseAgentSessionKey is NOT exported from plugin-sdk public surface.
+// We implement our own minimal parser based on the known format:
+//   agent:<agentId>:<rest...>
+// where rest = "main" (webchat) or "<channel>:<accountId>:<peerKind>:<peerId>"
 
 type SendTarget = {
   channel: string;      // "telegram", "discord", "slack", etc.
@@ -286,8 +292,16 @@ type SendTarget = {
   accountId: string;    // OpenClaw account ID for this channel
 };
 
+function parseSessionKey(sessionKey: string): { agentId: string; rest: string } | null {
+  const raw = (sessionKey ?? "").trim();
+  if (!raw) return null;
+  const parts = raw.split(":").filter(Boolean);
+  if (parts.length < 3 || parts[0] !== "agent") return null;
+  return { agentId: parts[1], rest: parts.slice(2).join(":") };
+}
+
 function parseTarget(sessionKey: string): SendTarget | null {
-  const parsed = parseAgentSessionKey(sessionKey);
+  const parsed = parseSessionKey(sessionKey);
   if (!parsed) return null;
 
   const parts = parsed.rest.split(":").filter(Boolean);
@@ -314,7 +328,7 @@ type ChannelSender = (
   runtime: PluginRuntime,
   target: SendTarget,
   message: string
-) => Promise<void>;
+) => Promise<unknown>;  // channel send functions return channel-specific result types
 
 // Explicit adapter per supported channel
 const channelAdapters: Record<string, ChannelSender> = {
@@ -476,8 +490,10 @@ Zero external dependencies. Only depends on OpenClaw Plugin SDK types.
 
 1. **Skill detection**: Solved via `llm_input` hook — detect skill markers in system prompt, store per session. `before_tool_call` looks up session to decide whether to inject progress.
 2. **No `emitAgentEvent` in Plugin SDK**: Confirmed not exported. v1 uses channel-specific send functions exclusively. Webchat/SSE deferred to v2 via gateway method.
-3. **Hook context limitations**: `before_tool_call` ctx has no `runId`. Use `sessionKey` as state key instead. Channel info extracted from sessionKey via `parseAgentSessionKey()`.
-4. **Plugin does not block tool calls**: All hook handlers return void. No modification to tool call params or execution.
+3. **Hook context limitations**: `before_tool_call` ctx has no `runId`. Use `sessionKey` as state key instead.
+4. **`parseAgentSessionKey` not in public SDK**: Implement our own minimal parser (`parseSessionKey`). The format is stable (`agent:<agentId>:<rest>`), and the parser is trivial (~5 lines).
+5. **Plugin export form**: Use `OpenClawPluginDefinition` object with `register` method, `export default`. This matches SDK's expected module shape.
+6. **Plugin does not block tool calls**: All hook handlers return void. No modification to tool call params or execution.
 
 ## Open Questions / Risks
 
