@@ -1,199 +1,55 @@
-<h1 align="center">🎯 AdMapix</h1>
+# AdMapix — 广告情报与应用分析 Skill
 
-<p align="center">
-  <strong>AI 驱动的广告素材情报 — 搜索、发现、送达。</strong><br>
-  <sub><b>Ad</b>(广告) + <b>Mapix</b>(Mapping Pixels) — AI 驱动的广告素材情报。</sub>
-</p>
+[English](README.md)
 
-<p align="center">
-  <a href="#-快速开始"><img src="https://img.shields.io/badge/快速开始-1_分钟-blue?style=for-the-badge" alt="Quick Start"></a>
-  <a href="#-功能特性"><img src="https://img.shields.io/badge/核心功能-6_项-green?style=for-the-badge" alt="Features"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"></a>
-</p>
+一站式广告情报助手。通过自然语言搜索广告素材、分析应用、查看排行榜、追踪下载量/收入、获取市场洞察。
 
-<p align="center">
-  <img src="https://img.shields.io/badge/python-≥3.10-blue?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/MCP-STDIO-blueviolet" alt="MCP">
-  <img src="https://img.shields.io/badge/平台-macOS_|_Linux_|_Windows-lightgrey" alt="Platform">
-</p>
+## 功能
 
-<p align="center">
-  <a href="README.md"><strong>English</strong></a>
-</p>
+- **素材搜索** — 按关键词、地区、媒体、素材类型搜索广告创意，支持 H5 可视化结果
+- **应用分析** — 查询任意应用的详情、开发者信息、广告素材库
+- **排行榜** — App Store / Google Play 官方榜单，推广排行、下载排行、收入排行
+- **下载量与收入** — 追踪下载量和收入的时间趋势（第三方估算数据）
+- **投放分布** — 分析应用在哪些国家、哪些媒体位、用什么素材类型投放广告
+- **市场分析** — 按国家、媒体渠道、广告主、流量主维度的行业级洞察
+- **深度分析** — 多维度综合报告，整合以上所有能力
 
----
-
-## 🤔 AdMapix 是什么？
-
-AdMapix 是一个 **MCP Server + OpenClaw Skill**，让 AI 智能体通过自然语言搜索竞品广告素材。
-
-只需对你的 AI 助手说出想搜的内容，即可获得包含视频、图片、数据指标的 H5 结果页面，还能一键将视频发送到微信对话。
-
-```
-用户: "搜一下东南亚的休闲游戏视频广告"
-
-助手: 🎯 搜到 2,847 条广告素材（第 1 页）
-      👉 https://api.admapix.com/p/abc123
-```
-
----
-
-## ✨ 功能特性
-
-<table>
-<tr>
-<td width="33%">
-
-### 🔍 智能搜索
-关键词、国家、时间范围、素材类型 — 自然语言表达，自动映射为 API 参数。
-
-</td>
-<td width="33%">
-
-### 🌏 全球覆盖
-50+ 国家，10+ 地区快捷词（东南亚、北美、日韩……），支持行业分类筛选。
-
-</td>
-<td width="33%">
-
-### 📊 丰富展示
-自动生成 H5 页面，包含视频播放、图片画廊、广告指标、预估曝光量等数据。
-
-</td>
-</tr>
-<tr>
-<td width="33%">
-
-### 📱 微信送达
-一键"发送到对话" — 将视频文件直接发送到微信聊天中。
-
-</td>
-<td width="33%">
-
-### 🤖 智能体原生
-基于 MCP 协议，兼容任何支持 MCP 的智能体（OpenClaw、Claude Code 等）。
-
-</td>
-<td width="33%">
-
-### ⚡ 零配置安装
-一个脚本搞定 Python、Node.js、mcporter 和配置文件 — 全程自动化。
-
-</td>
-</tr>
-</table>
-
----
-
-## 🚀 快速开始
-
-> **前提：** 需要管理员分配的 **API Key**。
-
-### Mac / Linux
+## 安装
 
 ```bash
-git clone https://github.com/fly0pants/admapix.git
-bash admapix/install.sh <你的API_KEY>
+npx clawhub install admapix
 ```
 
-### Windows (PowerShell)
+## 配置
 
-```powershell
-git clone https://github.com/fly0pants/admapix.git
-powershell -ExecutionPolicy Bypass -File admapix\install.ps1 -ApiKey <你的API_KEY>
-```
-
-安装脚本自动完成：
-
-| 步骤 | 做什么 |
-|------|--------|
-| 1 | 检测或安装 **Python 3.10+** |
-| 2 | 检测或安装 **Node.js** |
-| 3 | 检测或安装 **mcporter** |
-| 4 | 安装 MCP Server 到 `~/.admapix/` |
-| 5 | 配置 `~/.mcporter/mcporter.json` |
-| 6 | 安装 OpenClaw Skill 到 `~/.openclaw/skills/` |
-
-**搞定。** 对你的 AI 助手说「搜广告」就可以用了。
-
----
-
-## 🎯 使用方式
-
-通过 AI 助手（OpenClaw 等），直接说：
-
-| 你说 | 效果 |
-|------|------|
-| "搜一下 temu 的广告" | 按关键词搜索 |
-| "只看视频素材" | 按素材类型筛选 |
-| "东南亚地区的" | 按地区筛选 |
-| "按曝光量排序" | 按曝光量排序 |
-| "最近一周的" | 按时间范围筛选 |
-| "下一页" | 翻页 |
-
----
-
-## 🔧 手动配置
-
-<details>
-<summary>如果你不想用安装脚本，也可以手动配置</summary>
-
-1. **安装依赖**
+1. 前往 [www.admapix.com](https://www.admapix.com) 注册并获取 API Key
+2. 配置环境变量：
 
 ```bash
-python3 -m venv ~/.admapix/.venv
-~/.admapix/.venv/bin/pip install mcp httpx pydantic
+openclaw config set skills.entries.admapix.apiKey "你的ADMAPIX_API_KEY"
 ```
 
-2. **配置 `~/.mcporter/mcporter.json`**
+## 使用示例
 
-```json
-{
-  "mcpServers": {
-    "admapix": {
-      "command": "~/.admapix/.venv/bin/python3 ~/.admapix/server.py",
-      "env": {
-        "API_KEY": "<你的API_KEY>"
-      }
-    }
-  }
-}
-```
+安装配置完成后，直接对 AI 助手说：
 
-3. **安装 Skill**
+| 分类 | 示例指令 |
+|------|----------|
+| 素材搜索 | 「搜一下 puzzle game 的视频广告」「找东南亚投放的休闲游戏素材」 |
+| 应用分析 | 「分析一下 Temu」「TikTok 的开发者是谁？」 |
+| 排行榜 | 「美国 App Store 免费榜」「这周广告投放量最大的 App」 |
+| 下载量 | 「Temu 最近下载量怎么样？」「对比 Temu 和 SHEIN 的下载量」 |
+| 投放分布 | 「Temu 主要在哪些国家投广告？」「这个游戏用了哪些广告渠道？」 |
+| 市场分析 | 「全球游戏广告市场哪个国家最大？」「谁是最大的游戏广告主？」 |
+| 深度分析 | 「全面分析 Temu 的广告策略」「对比 Temu 和 SHEIN」 |
 
-```bash
-cp -r skill/ ~/.openclaw/skills/ad-creative-search/
-```
+支持 **中文** 和 **英文** 双语 — 助手会自动匹配你的语言。
 
-</details>
+## 链接
+
+- 官网：[www.admapix.com](https://www.admapix.com)
+- GitHub：[github.com/fly0pants/admapix](https://github.com/fly0pants/admapix)
 
 ---
 
-## 🏗️ 架构
-
-```
-用户（微信 / 智能体）
-  → AI 智能体（OpenClaw）
-    → mcporter call 'admapix.search_creatives(...)'
-      → MCP Server（Python, STDIO）
-        → AdMapix API
-          → H5 结果页面 ← 用户在浏览器中查看
-          → 视频送达    ← 用户在微信中接收
-```
-
----
-
-## 📄 许可证
-
-MIT License — 自由使用、修改和分发。
-
----
-
-<div align="center">
-
-**AdMapix** — *广告情报，触手可及。*
-
-Built by [妙智盛](https://miaozhisheng.tech/)
-
-</div>
+由 [妙智盛](https://www.admapix.com) 提供技术支持

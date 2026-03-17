@@ -1,14 +1,18 @@
-# AdMapix — Ad Creative Search Skill
+# AdMapix — Ad Intelligence & App Analytics Skill
 
-Search competitor ad creatives using natural language. Results displayed as interactive H5 pages.
+[中文文档](README_CN.md)
+
+All-in-one ad intelligence assistant. Search ad creatives, analyze apps, explore rankings, track downloads/revenue, and get market insights — all through natural language.
 
 ## Features
 
-- Keyword search for ad creatives (app name, ad copy, brand, etc.)
-- Filter by creative type: video / image / playable ad
-- Filter by region: Southeast Asia, North America, Europe, Japan & Korea, Middle East, etc.
-- Sort by date, impressions, or days active
-- Visual H5 result pages with inline video and image preview
+- **Creative Search** — Search ad creatives by keyword, region, media, creative type, with H5 visual results
+- **App Analysis** — Look up any app's details, developer info, and ad creative portfolio
+- **Rankings** — App Store / Google Play charts, promotion rankings, download rankings, revenue rankings
+- **Download & Revenue** — Track download and revenue trends over time (third-party estimates)
+- **Ad Distribution** — Analyze where and how an app advertises (countries, media placements, creative formats)
+- **Market Analysis** — Industry-level insights by country, media channel, advertiser, and publisher
+- **Deep Dive** — Multi-dimensional reports combining all of the above
 
 ## Install
 
@@ -29,20 +33,17 @@ openclaw config set skills.entries.admapix.apiKey "YOUR_ADMAPIX_API_KEY"
 
 After setup, just tell your AI assistant:
 
-- "Search video ads for puzzle games"
-- "Find casual game creatives in Southeast Asia"
-- "Show me temu's latest ad creatives"
-- "Search e-commerce ads with the most impressions this week"
+| Category | Example prompts |
+|----------|----------------|
+| Creative Search | "Search video ads for puzzle games", "Find casual game creatives in Southeast Asia" |
+| App Analysis | "Tell me about Temu", "Who is the developer of TikTok?" |
+| Rankings | "App Store free chart US", "Top apps by ad spend this week" |
+| Downloads | "How are Temu's downloads trending?", "Compare Temu vs SHEIN downloads" |
+| Ad Distribution | "Which countries does Temu advertise in?", "What ad channels does this game use?" |
+| Market Analysis | "Which country has the most game ads?", "Who are the top game advertisers?" |
+| Deep Dive | "Full ad strategy analysis for Temu", "Compare Temu and SHEIN" |
 
-## Supported Filters
-
-| Filter | Examples |
-|--------|----------|
-| Keyword | puzzle game, temu, e-commerce |
-| Creative type | video, image, playable ad |
-| Region | Southeast Asia, US, Japan & Korea, Europe, Middle East |
-| Date range | last week, last month, custom dates |
-| Sort by | newest, most popular (impressions), longest running |
+Supports both **English** and **Chinese** — the assistant responds in your language.
 
 ## Links
 

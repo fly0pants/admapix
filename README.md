@@ -1,199 +1,55 @@
-<h1 align="center">🎯 AdMapix</h1>
+# AdMapix — Ad Intelligence & App Analytics Skill
 
-<p align="center">
-  <strong>AI-Powered Ad Creative Intelligence — Search, Discover, Deliver.</strong><br>
-  <sub><b>Ad</b>(Advertising) + <b>Mapix</b>(Mapping Pixels) — AI-powered ad creative intelligence.</sub>
-</p>
+[中文文档](README_CN.md)
 
-<p align="center">
-  <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick_Start-1_min-blue?style=for-the-badge" alt="Quick Start"></a>
-  <a href="#-features"><img src="https://img.shields.io/badge/Features-6_Core-green?style=for-the-badge" alt="Features"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"></a>
-</p>
+All-in-one ad intelligence assistant. Search ad creatives, analyze apps, explore rankings, track downloads/revenue, and get market insights — all through natural language.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/python-≥3.10-blue?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/MCP-STDIO-blueviolet" alt="MCP">
-  <img src="https://img.shields.io/badge/platform-macOS_|_Linux_|_Windows-lightgrey" alt="Platform">
-</p>
+## Features
 
-<p align="center">
-  <a href="README_CN.md"><strong>中文文档</strong></a>
-</p>
+- **Creative Search** — Search ad creatives by keyword, region, media, creative type, with H5 visual results
+- **App Analysis** — Look up any app's details, developer info, and ad creative portfolio
+- **Rankings** — App Store / Google Play charts, promotion rankings, download rankings, revenue rankings
+- **Download & Revenue** — Track download and revenue trends over time (third-party estimates)
+- **Ad Distribution** — Analyze where and how an app advertises (countries, media placements, creative formats)
+- **Market Analysis** — Industry-level insights by country, media channel, advertiser, and publisher
+- **Deep Dive** — Multi-dimensional reports combining all of the above
 
----
-
-## 🤔 What is AdMapix?
-
-AdMapix is an **MCP Server + OpenClaw Skill** that lets AI agents search competitor ad creatives through natural language.
-
-Just tell your agent what you're looking for, and get back a rich H5 results page with videos, images, metrics, and one-click delivery to WeChat.
-
-```
-User: "Search casual game video ads in Southeast Asia"
-
-Agent: 🎯 Found 2,847 ad creatives (page 1)
-       👉 https://api.admapix.com/p/abc123
-```
-
----
-
-## ✨ Features
-
-<table>
-<tr>
-<td width="33%">
-
-### 🔍 Smart Search
-Keyword, country, date range, creative type — all expressed in natural language, auto-mapped to API parameters.
-
-</td>
-<td width="33%">
-
-### 🌏 Global Coverage
-50+ countries, 10+ region shortcuts, filterable by industry category.
-
-</td>
-<td width="33%">
-
-### 📊 Rich Results
-Auto-generated H5 pages with video playback, image gallery, ad metrics, and impression data.
-
-</td>
-</tr>
-<tr>
-<td width="33%">
-
-### 📱 WeChat Delivery
-One-tap "Send to Chat" — delivers video files directly into WeChat conversations.
-
-</td>
-<td width="33%">
-
-### 🤖 Agent-Native
-Built as MCP Server, works with any MCP-compatible agent (OpenClaw, Claude Code, etc).
-
-</td>
-<td width="33%">
-
-### ⚡ Zero Config
-One install script handles Python, Node.js, mcporter, and config — fully automated.
-
-</td>
-</tr>
-</table>
-
----
-
-## 🚀 Quick Start
-
-> **Prerequisite:** An API Key from your admin.
-
-### Mac / Linux
+## Install
 
 ```bash
-git clone https://github.com/fly0pants/admapix.git
-bash admapix/install.sh <YOUR_API_KEY>
+npx clawhub install admapix
 ```
 
-### Windows (PowerShell)
+## Setup
 
-```powershell
-git clone https://github.com/fly0pants/admapix.git
-powershell -ExecutionPolicy Bypass -File admapix\install.ps1 -ApiKey <YOUR_API_KEY>
-```
-
-The installer automatically:
-
-| Step | What it does |
-|------|-------------|
-| 1 | Detects or installs **Python 3.10+** |
-| 2 | Detects or installs **Node.js** |
-| 3 | Detects or installs **mcporter** |
-| 4 | Sets up MCP Server in `~/.admapix/` |
-| 5 | Configures `~/.mcporter/mcporter.json` |
-| 6 | Installs OpenClaw Skill to `~/.openclaw/skills/` |
-
-**That's it.** Start chatting with your agent and search away.
-
----
-
-## 🎯 Usage
-
-Through your AI agent (OpenClaw, etc.), just say:
-
-| You say | What happens |
-|---------|-------------|
-| "search temu ads" | Search by keyword |
-| "video only" | Filter by creative type |
-| "in Southeast Asia" | Filter by region |
-| "sort by impressions" | Sort by impression |
-| "last 7 days" | Filter by date range |
-| "next page" | Paginate |
-
----
-
-## 🔧 Manual Setup
-
-<details>
-<summary>If you prefer manual configuration over the install script</summary>
-
-1. **Install dependencies**
+1. Go to [www.admapix.com](https://www.admapix.com) to register and get your API Key
+2. Configure:
 
 ```bash
-python3 -m venv ~/.admapix/.venv
-~/.admapix/.venv/bin/pip install mcp httpx pydantic
+openclaw config set skills.entries.admapix.apiKey "YOUR_ADMAPIX_API_KEY"
 ```
 
-2. **Configure `~/.mcporter/mcporter.json`**
+## Usage Examples
 
-```json
-{
-  "mcpServers": {
-    "admapix": {
-      "command": "~/.admapix/.venv/bin/python3 ~/.admapix/server.py",
-      "env": {
-        "API_KEY": "<YOUR_API_KEY>"
-      }
-    }
-  }
-}
-```
+After setup, just tell your AI assistant:
 
-3. **Install the Skill**
+| Category | Example prompts |
+|----------|----------------|
+| Creative Search | "Search video ads for puzzle games", "Find casual game creatives in Southeast Asia" |
+| App Analysis | "Tell me about Temu", "Who is the developer of TikTok?" |
+| Rankings | "App Store free chart US", "Top apps by ad spend this week" |
+| Downloads | "How are Temu's downloads trending?", "Compare Temu vs SHEIN downloads" |
+| Ad Distribution | "Which countries does Temu advertise in?", "What ad channels does this game use?" |
+| Market Analysis | "Which country has the most game ads?", "Who are the top game advertisers?" |
+| Deep Dive | "Full ad strategy analysis for Temu", "Compare Temu and SHEIN" |
 
-```bash
-cp -r skill/ ~/.openclaw/skills/ad-creative-search/
-```
+Supports both **English** and **Chinese** — the assistant responds in your language.
 
-</details>
+## Links
+
+- Website: [www.admapix.com](https://www.admapix.com)
+- GitHub: [github.com/fly0pants/admapix](https://github.com/fly0pants/admapix)
 
 ---
 
-## 🏗️ Architecture
-
-```
-User (WeChat / Agent)
-  → AI Agent (OpenClaw)
-    → mcporter call 'admapix.search_creatives(...)'
-      → MCP Server (Python, STDIO)
-        → AdMapix API
-          → H5 Result Page ← User views in browser
-          → Video Delivery  ← User receives in WeChat
-```
-
----
-
-## 📄 License
-
-MIT License — free to use, modify, and distribute.
-
----
-
-<div align="center">
-
-**AdMapix** — *Ad intelligence at your fingertips.*
-
-Built by [Miaozhisheng](https://miaozhisheng.tech/)
-
-</div>
+Built by [Miaozhisheng](https://www.admapix.com)
