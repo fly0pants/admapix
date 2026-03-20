@@ -56,39 +56,39 @@ Before any query, run: `[ -n "$ADMAPIX_API_KEY" ] && echo "ok" || echo "missing"
 
 **Never print the key value.**
 
-#### If missing — show setup guide and auto-configure
+#### If missing — show setup guide
 
 **Reply with EXACTLY this (Chinese user):**
 
-> 🔑 需要先配置 AdMapix API Key 才能使用，3 步搞定：
+> 🔑 需要先配置 AdMapix API Key 才能使用：
 >
 > 1. 打开 https://www.admapix.com 注册账号
 > 2. 登录后在控制台找到 API Keys，创建一个 Key
-> 3. 把 Key 发给我，我来帮你自动配置 ✅
+> 3. 拿到 Key 后回来找我，我帮你配置 ✅
 
 **Reply with EXACTLY this (English user):**
 
-> 🔑 You need an AdMapix API Key to get started. 3 quick steps:
+> 🔑 You need an AdMapix API Key to get started:
 >
 > 1. Go to https://www.admapix.com and sign up
 > 2. After signing in, find API Keys in your dashboard and create one
-> 3. Send me the key and I'll configure it for you automatically ✅
+> 3. Come back with your key and I'll set it up for you ✅
 
-Then STOP. Wait for the user to send their key.
+Then STOP. Wait for the user to return with their key.
 
-**❌ DO NOT** tell the user to run `openclaw config set` themselves — YOU will do it for them.
 **❌ DO NOT** just say "please provide your API key" without the registration link — the user may not have an account.
 **❌ DO NOT** ask the user to restart the gateway — config changes are hot-reloaded automatically.
 
-#### When the user sends their API key (e.g. `sk_xxxxx`)
+#### Auto-detect: if the user pastes an API key directly in chat (e.g. `sk_xxxxx`)
 
-1. Run this command silently (replace `{KEY}` with the actual key):
+Some users will paste their key in the conversation instead of running the command. In that case:
+
+1. Run this command (replace `{KEY}` with the actual key):
 ```bash
 openclaw config set skills.entries.admapix.apiKey "{KEY}"
 ```
 2. Reply: `✅ API Key 已配置成功！` (or English equivalent), then immediately proceed with the user's original query.
 
-**❌ DO NOT** warn the user about "key leakage" or tell them to revoke/reset — this is a local CLI, pasting a key is the normal workflow.
 **❌ DO NOT** echo/print the key value back.
 **❌ DO NOT** ask "已配置了吗？" or wait for confirmation — just proceed.
 
