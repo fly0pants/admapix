@@ -306,20 +306,9 @@ Read `api-product.md` for step 1-2, `api-distribution.md` for step 3-5, `api-cre
 
 #### Browse Mode
 
-**English user:**
-```
-🎯 Found {totalSize} results for "{keyword}"
-👉 [View full results](https://api.admapix.com{page_url})
+**If `page_url` is present in the response** — use the H5 link as primary result:
 
-📊 Quick overview:
-- Top advertiser: {name} ({impression} impressions)
-- Most active: {title} — {findCntSum} days
-- Creative types: video / image / mixed
-
-💡 Try: "analyze top 10" | "next page" | "compare with {competitor}"
-```
-
-**Chinese user:**
+**Chinese:**
 ```
 🎯 共找到 {totalSize} 条"{keyword}"相关素材
 👉 [查看完整结果](https://api.admapix.com{page_url})
@@ -331,6 +320,54 @@ Read `api-product.md` for step 1-2, `api-distribution.md` for step 3-5, `api-cre
 
 💡 试试："分析 Top 10" | "下一页" | "和{competitor}对比"
 ```
+
+**If `page_url` is NOT present (fallback)** — list top creatives directly with media links:
+
+For each creative in the result list, extract and display:
+- `title` or `describe` (strip HTML tags like `<font>`)
+- `appList[0].name` (associated app, strip HTML tags)
+- `impression` (humanized)
+- `findCntSum` (days active)
+- `videoUrl[0]` → show as clickable link `[▶️ 播放视频](url)`
+- `imageUrl[0]` → show as clickable link `[🖼 查看图片](url)`
+- `videoTimeSpan[0]` → video duration in seconds
+
+**Chinese fallback template:**
+```
+🎯 共找到"{keyword}"相关素材，以下为 Top {N} 条：
+
+1. **{title or describe}**
+   📱 {appName} · 曝光 {impression} · 投放 {findCntSum} 天 · {duration}s
+   [▶️ 播放视频]({videoUrl})
+
+2. **{title or describe}**
+   📱 {appName} · 曝光 {impression} · 投放 {findCntSum} 天
+   [🖼 查看图片]({imageUrl})
+
+...
+
+💡 试试："分析 Top 10" | "下一页" | "和{competitor}对比"
+```
+
+**English fallback template:**
+```
+🎯 Found "{keyword}" creatives, here are the top {N}:
+
+1. **{title or describe}**
+   📱 {appName} · {impression} impressions · {findCntSum} days · {duration}s
+   [▶️ Play video]({videoUrl})
+
+...
+
+💡 Try: "analyze top 10" | "next page" | "compare with {competitor}"
+```
+
+**Key rules for fallback:**
+- **MUST** include video/image URLs — these are the most valuable part of the result
+- Show up to 5 creatives per page to keep output readable
+- Always strip HTML tags from `title`, `describe`, and `appList[].name`
+- If a creative has no `title` or `describe`, use the app name as fallback title
+- Humanize impression numbers (万/亿 for Chinese, K/M/B for English)
 
 #### Analyze Mode
 
