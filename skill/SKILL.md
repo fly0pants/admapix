@@ -56,49 +56,41 @@ Before any query, run: `[ -n "$ADMAPIX_API_KEY" ] && echo "ok" || echo "missing"
 
 **Never print the key value.**
 
-#### If missing — you MUST show the full setup guide
+#### If missing — show setup guide and auto-configure
 
-**⚠️ MANDATORY: You MUST output the EXACT message below. Do NOT skip the registration link. Do NOT just ask "please provide your API key" — users may not have an account yet and need to know WHERE to register first.**
+**Reply with EXACTLY this (Chinese user):**
 
-Output this EXACT message (match user's language):
+> 🔑 需要先配置 AdMapix API Key 才能使用，3 步搞定：
+>
+> 1. 打开 https://www.admapix.com 注册账号
+> 2. 登录后在控制台找到 API Keys，创建一个 Key
+> 3. 把 Key 发给我，我来帮你自动配置 ✅
 
-**Chinese — output this exactly:**
-```
-🔑 需要先配置 AdMapix API Key 才能使用，3 步搞定：
+**Reply with EXACTLY this (English user):**
 
-1. 打开 https://www.admapix.com 注册账号
-2. 登录后在控制台找到 API Keys，创建一个 Key
-3. 把 Key 发给我，我来帮你自动配置 ✅
-```
+> 🔑 You need an AdMapix API Key to get started. 3 quick steps:
+>
+> 1. Go to https://www.admapix.com and sign up
+> 2. After signing in, find API Keys in your dashboard and create one
+> 3. Send me the key and I'll configure it for you automatically ✅
 
-**English — output this exactly:**
-```
-🔑 You need an AdMapix API Key to get started. 3 quick steps:
+Then STOP. Wait for the user to send their key.
 
-1. Go to https://www.admapix.com and sign up
-2. After signing in, find API Keys in your dashboard and create one
-3. Send me the key and I'll configure it for you automatically ✅
-```
+**❌ DO NOT** tell the user to run `openclaw config set` themselves — YOU will do it for them.
+**❌ DO NOT** just say "please provide your API key" without the registration link — the user may not have an account.
+**❌ DO NOT** ask the user to restart the gateway — config changes are hot-reloaded automatically.
 
-Then **stop and wait** for the user to provide their key. Do NOT proceed with any API calls. Do NOT omit any of the 3 steps above.
+#### When the user sends their API key (e.g. `sk_xxxxx`)
 
-#### When the user provides their API key
-
-The user will paste or send their API key in the chat. When you receive it:
-
-1. **Do NOT lecture the user about key security or tell them the key is "leaked."** In a local CLI context this is the normal and expected way to configure credentials.
-2. **Automatically configure it** by running both commands in a single code block:
+1. Run this command silently (replace `{KEY}` with the actual key):
 ```bash
-openclaw config set skills.entries.admapix.apiKey "{THE_KEY}" && export ADMAPIX_API_KEY="{THE_KEY}" && echo "configured"
+openclaw config set skills.entries.admapix.apiKey "{KEY}"
 ```
-3. **Confirm success** and immediately proceed with the user's original query:
-   - Chinese: `✅ API Key 已配置成功！现在帮你处理刚才的请求...`
-   - English: `✅ API Key configured! Now handling your request...`
+2. Reply: `✅ API Key 已配置成功！` (or English equivalent), then immediately proceed with the user's original query.
 
-**Key rules:**
-- Never echo/print the key value back to the user
-- Do NOT ask the user to restart anything — the `export` makes it effective immediately in the current session, and `openclaw config set` persists it for future sessions
-- After configuration, go straight to Step 1.5 with the user's original query — no additional confirmation needed
+**❌ DO NOT** warn the user about "key leakage" or tell them to revoke/reset — this is a local CLI, pasting a key is the normal workflow.
+**❌ DO NOT** echo/print the key value back.
+**❌ DO NOT** ask "已配置了吗？" or wait for confirmation — just proceed.
 
 ### Step 1.5: Complexity Classification — 复杂度分类
 
