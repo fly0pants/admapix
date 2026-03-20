@@ -52,11 +52,31 @@ Just describe what you want to know — in plain English or Chinese — and get 
 
 ### Install
 
+**Option 1: From ClewHub (recommended)**
+
 ```bash
 npx clawhub install admapix
 ```
 
+**Option 2: From GitHub**
+
+```bash
+npx clawhub install fly0pants/admapix
+```
+
+**Option 3: Manual install**
+
+```bash
+git clone https://github.com/fly0pants/admapix.git
+cd admapix
+npx clawhub install .
+```
+
 ### Configure
+
+Once installed, just start using the skill — when it detects that no API Key is configured, it will guide you through registration and setup automatically.
+
+Or configure manually:
 
 1. Register at [admapix.com](https://www.admapix.com) to get your API Key
 2. Set up credentials:

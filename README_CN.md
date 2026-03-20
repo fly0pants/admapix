@@ -52,11 +52,31 @@
 
 ### 安装
 
+**方式一：从 ClewHub 安装（推荐）**
+
 ```bash
 npx clawhub install admapix
 ```
 
+**方式二：从 GitHub 安装**
+
+```bash
+npx clawhub install fly0pants/admapix
+```
+
+**方式三：手动安装**
+
+```bash
+git clone https://github.com/fly0pants/admapix.git
+cd admapix
+npx clawhub install .
+```
+
 ### 配置
+
+安装后直接使用即可 — 首次使用时 skill 会自动引导你注册账号并配置 API Key。
+
+如需手动配置：
 
 1. 前往 [admapix.com](https://www.admapix.com) 注册并获取 API Key
 2. 设置凭证：
