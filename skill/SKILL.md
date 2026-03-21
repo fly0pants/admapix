@@ -131,7 +131,20 @@ Deep (2+ API calls):
 
 **→ Deep path:** Call the Deep Research Framework.
 
-This is a 3-step process. Do NOT use `[[reply_to_current]]` until Step 3.
+This is a 4-step process. Do NOT use `[[reply_to_current]]` until the final step.
+
+**Step 0 — Validate API key before submitting:**
+
+Run this command first to verify the API key is valid:
+```bash
+curl -s -o /dev/null -w "%{http_code}" https://api.admapix.com/api/data/quota -H "X-API-Key: $ADMAPIX_API_KEY"
+```
+
+- If it returns `200` → key is valid, proceed to Step 1.
+- If it returns `401` or `403` → key is invalid or account is disabled. Show this message and STOP:
+  - Chinese: `❌ API Key 无效或账号已停用，请检查你的 Key 是否正确。前往 https://www.admapix.com 重新获取。`
+  - English: `❌ API Key is invalid or account is disabled. Please check your key at https://www.admapix.com`
+- Do NOT submit to deep research if validation fails — it will waste resources and always fail.
 
 **Step 1 — Submit the research task (returns instantly):**
 
