@@ -370,25 +370,34 @@ Search for ad creatives specifically associated with a product.
 
 ### Request Body
 
+Two ways to specify the target product — use **one** of these:
+
 ```json
+// Option A: unified product ID (32-char hex hash, covers all platforms)
 {
   "content_type": "creative",
-  "unified_product_id": "xxx",
-  "keyword": "",
-  "page": 1,
-  "page_size": 20,
-  "start_date": "",
-  "end_date": "",
-  "sort_field": "3",
-  "sort_rule": "desc"
+  "unified_product_id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+  "page": 1, "page_size": 20,
+  "sort_field": "3", "sort_rule": "desc"
+}
+
+// Option B: individual product IDs (appCode — package name or numeric store ID)
+{
+  "content_type": "creative",
+  "product_ids": ["com.example.app"],
+  "page": 1, "page_size": 20,
+  "sort_field": "3", "sort_rule": "desc"
 }
 ```
 
 | Parameter | Type | Description |
 |---|---|---|
 | content_type | string | creative, imagevideo, preplay, demoad, document |
-| unified_product_id | string | Required — the target product |
+| unified_product_id | string | Unified product ID (32-char hex). Use for product groups |
+| product_ids | string[] | Individual product IDs (appCode/pkg). Use for single products |
 | keyword | string | Optional further keyword filter |
+
+**How to choose:** If the ID is a 32-character hex string → use `unified_product_id`. Otherwise (package name like `com.xxx` or numeric ID like `583700738`) → use `product_ids`.
 
 ### Response
 
@@ -472,20 +481,24 @@ Get the total creative count for a product across all 5 content types. Useful fo
 
 ### Request Body
 
+Two ways to specify the target — use **one** of these:
+
 ```json
-{
-  "unified_product_id": "com.einnovation.temu",
-  "start_date": "",
-  "end_date": ""
-}
+// Option A: unified product ID (32-char hex)
+{ "unified_product_id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4", "start_date": "", "end_date": "" }
+
+// Option B: individual product IDs (appCode/pkg)
+{ "product_ids": ["com.einnovation.temu"], "start_date": "", "end_date": "" }
 ```
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| product_ids | string[] | — | Product ID list (use this OR unified_product_id) |
-| unified_product_id | string | — | Unified product ID (use this OR product_ids) |
+| product_ids | string[] | — | Individual product IDs (appCode/pkg). Use for single products |
+| unified_product_id | string | — | Unified product ID (32-char hex). Use for product groups |
 | start_date | string | 365 days ago | YYYY-MM-DD |
 | end_date | string | today | YYYY-MM-DD |
+
+**How to choose:** 32-char hex → `unified_product_id`, otherwise → `product_ids`.
 
 ### Response
 
