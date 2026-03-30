@@ -35,6 +35,25 @@ Just describe what you want to know — in plain English or Chinese — and get 
 - **Cross-dimensional analysis** across geo, media, creative, and time — automatically.
 - **AI-powered deep research** that orchestrates dozens of API calls and synthesizes findings into shareable reports.
 
+### How AdMapix Compares
+
+| Feature | AdMapix | SpyFu | Pathmatics | AppGrowing |
+|---------|---------|-------|------------|------------|
+| Countries covered | 200+ | US/UK/CA/AU | US + limited | 50+ |
+| AI research reports | ✅ Deep research | ❌ | ❌ | ❌ |
+| Natural language query | ✅ EN + ZH | ❌ | ❌ | Partial |
+| App store analytics | ✅ iOS + Android | ❌ | ❌ | ✅ |
+| Ad creative search | ✅ Multi-channel | Limited | Display only | Mobile only |
+| Download & revenue trends | ✅ | ❌ | ❌ | ✅ |
+
+## Use Cases
+
+- **Competitor ad analysis**: "Show me what ads TikTok is running in the US" → instant results
+- **Market research**: "Compare gaming ad strategies in Southeast Asia" → deep research report
+- **Creative inspiration**: Search millions of ad creatives by keyword, country, or platform
+- **App intelligence**: Track any app's rankings, downloads, revenue, and SDK usage
+- **UA strategy**: Analyze competitor user acquisition channels and budget allocation
+
 ## Features
 
 | Capability | Description |
@@ -184,6 +203,20 @@ AdMapix is built as a skill for **[OpenClaw](https://github.com/anthropics/openc
 - **Website** — [admapix.com](https://www.admapix.com)
 - **Deep Research Framework** — [github.com/fly0pants/deep-research-framework](https://github.com/fly0pants/deep-research-framework)
 - **OpenClaw** — [github.com/anthropics/openclaw](https://github.com/anthropics/openclaw)
+
+## FAQ
+
+**What is AdMapix?**
+AdMapix is an AI-powered ad creative intelligence platform that lets you search competitor ad creatives across 200+ countries, analyze app store performance, and generate deep research reports — all through natural language queries.
+
+**How is AdMapix different from SpyFu or Pathmatics?**
+AdMapix combines ad creative search, app analytics, and AI-generated research reports in one platform. Unlike SpyFu (focused on Google Ads keywords) or Pathmatics (focused on display ads), AdMapix covers all major ad channels across 200+ countries with natural language query support in both English and Chinese.
+
+**Is AdMapix free?**
+AdMapix offers a free trial. See [pricing plans](https://www.admapix.com/plans) for details.
+
+**What platforms does AdMapix cover?**
+AdMapix covers ads from Meta (Facebook/Instagram), Google, TikTok, YouTube, Apple Search Ads, and more across 200+ countries.
 
 ## License
 

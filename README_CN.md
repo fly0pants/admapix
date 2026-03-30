@@ -35,6 +35,25 @@
 - **跨维度自动分析** — 地域 × 媒体 × 素材 × 时间，自动交叉关联
 - **AI 深度研究引擎** — 自动编排数十个 API 调用，综合分析后生成可分享的智能报告
 
+### 与竞品对比
+
+| 功能 | AdMapix | SpyFu | Pathmatics | AppGrowing |
+|------|---------|-------|------------|------------|
+| 覆盖国家 | 200+ | 美/英/加/澳 | 美国为主 | 50+ |
+| AI 研究报告 | ✅ 深度研究 | ❌ | ❌ | ❌ |
+| 自然语言查询 | ✅ 中英双语 | ❌ | ❌ | 部分支持 |
+| 应用商店分析 | ✅ iOS + Android | ❌ | ❌ | ✅ |
+| 广告素材搜索 | ✅ 全渠道 | 有限 | 仅展示广告 | 仅移动端 |
+| 下载量与收入趋势 | ✅ | ❌ | ❌ | ✅ |
+
+## 使用场景
+
+- **竞品广告分析**："帮我看看 TikTok 在美国投了什么广告" → 即时获取结果
+- **市场调研**："对比东南亚游戏广告策略" → 生成深度研究报告
+- **创意灵感**：按关键词、国家、平台搜索海量广告素材
+- **应用情报**：追踪任意 App 的排名、下载量、收入和 SDK 使用情况
+- **买量策略**：分析竞品的用户获取渠道和预算分配
+
 ## 核心能力
 
 | 能力 | 说明 |
@@ -183,6 +202,20 @@ AdMapix 基于 **[OpenClaw](https://github.com/anthropics/openclaw)** 构建 —
 - **官网** — [admapix.com](https://www.admapix.com)
 - **深度研究引擎** — [github.com/fly0pants/deep-research-framework](https://github.com/fly0pants/deep-research-framework)
 - **OpenClaw** — [github.com/anthropics/openclaw](https://github.com/anthropics/openclaw)
+
+## 常见问题
+
+**AdMapix 是什么？**
+AdMapix 是一个 AI 驱动的广告情报平台，支持在 200+ 个国家搜索竞品广告素材、分析应用商店表现、生成深度研究报告 — 全部通过自然语言完成。
+
+**AdMapix 和 SpyFu、Pathmatics 有什么区别？**
+AdMapix 将广告素材搜索、应用分析和 AI 研究报告整合在一个平台。不同于 SpyFu（专注 Google Ads 关键词）或 Pathmatics（专注展示广告），AdMapix 覆盖所有主流广告渠道、200+ 个国家，并支持中英双语自然语言查询。
+
+**AdMapix 免费吗？**
+AdMapix 提供免费试用。详情请查看[定价方案](https://www.admapix.com/plans)。
+
+**AdMapix 覆盖哪些广告平台？**
+AdMapix 覆盖 Meta（Facebook/Instagram）、Google、TikTok、YouTube、Apple Search Ads 等主流平台，横跨 200+ 个国家。
 
 ## 开源协议
 
