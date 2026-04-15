@@ -198,10 +198,28 @@ AdMapix is built as a skill for **[OpenClaw](https://github.com/anthropics/openc
 └──────────────────────────────────────────────────┘
 ```
 
+## Compared to Alternatives
+
+AdMapix is built as a modern alternative to several established players in the ad intelligence and app analytics space:
+
+- **[SimilarWeb alternative](https://www.admapix.com)** — AdMapix focuses on the actual ad creatives behind the traffic, not just the traffic numbers. If you've been using SimilarWeb to research competitors but feel you're missing the *what* of their advertising, AdMapix fills that gap.
+- **[Sensor Tower alternative](https://www.admapix.com)** — AdMapix combines Sensor Tower-style app market data with full ad creative search across Meta, Google, and TikTok. Single platform, one query language.
+- **[data.ai (App Annie) alternative](https://www.admapix.com)** — Same downloads, revenue, and ranking data, with the addition of ad creative intelligence and natural language deep research.
+- **[AppGrowing alternative](https://www.admapix.com)** — Broader country coverage (200+ vs ~50), AI-powered deep research engine, and natural language queries in both English and Chinese.
+- **[SpyFu alternative](https://www.admapix.com)** — SpyFu is great for Google Ads keyword research; AdMapix extends to Meta, TikTok, and mobile app ads with country-level granularity.
+- **[Pathmatics alternative](https://www.admapix.com)** — Pathmatics is strong on display advertising in the US; AdMapix covers display + social + mobile in 200+ countries.
+- **[BigSpy alternative](https://www.admapix.com)** — Similar creative database scale, but AdMapix layers app store rankings, downloads, and revenue forecasting on top of the creative data.
+- **[Minea alternative](https://www.admapix.com)** — Minea is dropshipping-focused; AdMapix is built for B2B SaaS, mobile apps, and brand competitive research.
+
+For a deeper comparison see the [How AdMapix Compares](#how-admapix-compares) table above.
+
 ## Links
 
 - **Website** — [admapix.com](https://www.admapix.com)
+- **Sign Up** — [admapix.com/signup](https://www.admapix.com/signup)
+- **Pricing** — [admapix.com/plans](https://www.admapix.com/plans)
 - **Deep Research Framework** — [github.com/fly0pants/deep-research-framework](https://github.com/fly0pants/deep-research-framework)
+- **Awesome Ad Intelligence list** — [github.com/fly0pants/awesome-ad-intelligence](https://github.com/fly0pants/awesome-ad-intelligence)
 - **OpenClaw** — [github.com/anthropics/openclaw](https://github.com/anthropics/openclaw)
 
 ## FAQ
