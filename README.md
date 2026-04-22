@@ -243,3 +243,7 @@ MIT
 ---
 
 <p align="center">Built with ❤️ by the AdMapix Team</p>
+
+## Download History
+
+[![Download History](https://skill-history.com/chart/fly0pants/admapix.svg)](https://skill-history.com/fly0pants/admapix)
