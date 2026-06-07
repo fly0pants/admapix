@@ -1,0 +1,8 @@
+{
+  "name": "admapix",
+  "version": "0.1.0",
+  "description": "Raw AdMapix ad creative data search for Claude Code. Provides an /admapix skill that returns structured JSON data only.",
+  "author": {
+    "name": "Miaozhisheng"
+  }
+}

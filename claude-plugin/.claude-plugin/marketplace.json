@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "admapix-local",
+  "description": "Local AdMapix Claude Code plugins",
+  "owner": {
+    "name": "Miaozhisheng"
+  },
+  "plugins": [
+    {
+      "name": "admapix",
+      "version": "0.1.0",
+      "description": "Raw AdMapix ad creative data search. Returns structured JSON data only.",
+      "author": {
+        "name": "Miaozhisheng"
+      },
+      "category": "productivity",
+      "source": "./admapix",
+      "homepage": "https://www.admapix.com"
+    }
+  ]
+}
